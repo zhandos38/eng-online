@@ -32,7 +32,22 @@ AppAsset::register($this);
     <div class="container">
         <div class="section-hero__content">
             <h1 class="secction-hero__title"><?= $this->title ?></h1>
-            <div><span>Главная / О нас</span></div>
+            <div>
+                <?= Breadcrumbs::widget([
+                    'options' => [
+                        'class' => 'app-breadcrumbs'
+                    ],
+                    'homeLink'      =>  [
+                        'label'     =>  Yii::t('yii', 'Home'),
+                        'url'       =>  ['/site/index'],
+                        'class'     =>  'home',
+                        'template'  =>  '<i class="fa fa-home"></i>{link}'.PHP_EOL,
+                    ],
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    'itemTemplate' => '<i class="fa fa-angle-right"></i>{link}'.PHP_EOL,
+                    'tag' =>  'ul',
+                ]); ?>
+            </div>
         </div>
     </div>
 </section>

@@ -1,10 +1,13 @@
 <?php
 
+use yii\helpers\Url;
+
 $this->title = 'Главная страница';
 ?>
 <div class="carousel slide" data-ride="carousel" id="carousel-1">
     <div class="carousel-inner" role="listbox">
-        <?php foreach ($sliders as $k => $slider): ?>
+        <?php /** @var \common\models\Slider $sliders */
+        foreach ($sliders as $k => $slider): ?>
             <div class="carousel-item <?= $k === 0 ? 'active' : '' ?>"><a href="<?= $slider->link ?>"><img class="w-100 d-block" src="<?= $slider->getImage() ?>" alt=<?= $slider->img ?>></a></div>
         <?php endforeach; ?>
     </div>
@@ -15,6 +18,21 @@ $this->title = 'Главная страница';
         <?php endforeach; ?>
     </ol>
 </div>
+<section id="section-offer" class="section section-offer">
+    <div class="container">
+        <div class="row">
+            <div class="section-offer__content">
+                <h2>Изучайте английский язык вместе с нами</h2>
+                <p>
+                    <?= Yii::t('app', 'Зарегистрируйтесь и пройдите наши бесплатные курсы') ?>
+                </p>
+                <a class="btn btn-success" href="<?= \yii\helpers\Url::to(['course/index']) ?>">
+                    Посмотреть все курсы
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="section section-feature">
     <div class="container">
         <div class="row">
@@ -117,103 +135,62 @@ $this->title = 'Главная страница';
         <h1 data-aos="fade-down" data-aos-duration="300">Наши курсы</h1>
         <p data-aos="fade-down" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>
         <div class="row">
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
+            <?php /** @var \common\models\Course $courses */
+            foreach ($courses as $course): ?>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img class="card-img w-100 d-block" src="<?= $course->getImage() ?>">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title"><?= $course->name ?></h4>
+                            <p><?= $course->price ?> тг</p>
+                            <a class="card-btn btn btn-primary" href="<?= Url::to(['course/view', 'id' => $course->id]) ?>">Подробнее</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card"><img class="card-img w-100 d-block" src="/img/british-union-jack-flag-waving-wind-closeup-united-kingdom-silk-material-texture-visible-very-high-resolution-image-125043392.jpg" style="filter: brightness(50%);">
-                    <div class="card-img-overlay">
-                        <h4 class="card__title">The Elementary</h4>
-                        <p>18 лекции, 3999 тг.</p><button class="btn btn-primary" type="button">Подробнее</button></div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
-        <div class="courses__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-delay="300" type="button">Все курсы</button></div>
+        <div class="courses__footer">
+            <a class="btn btn-primary" href="<?= Url::to(['course/index']) ?>" data-aos="zoom-in" data-aos-delay="300" type="button">Все курсы</a>
+        </div>
     </div>
 </section>
-<section class="section section-lifehacks">
-    <div class="container">
-        <h1 data-aos="fade-up" data-aos-duration="300">Лайфхаки</h1>
-        <p data-aos="fade-up" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>
-        <div class="row"><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div><div class="col-md-3">
-                <div class="life-hack">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div></div>
-        <div class="lifehacks__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</button></div>
-    </div>
-</section>
+<!--<section class="section section-lifehacks">-->
+<!--    <div class="container">-->
+<!--        <h1 data-aos="fade-up" data-aos-duration="300">Лайфхаки</h1>-->
+<!--        <p data-aos="fade-up" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>-->
+<!--        <div class="row"><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div><div class="col-md-3">-->
+<!--                <div class="life-hack">-->
+<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+<!--            </div></div>-->
+<!--        <div class="lifehacks__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</button></div>-->
+<!--    </div>-->
+<!--</section>-->

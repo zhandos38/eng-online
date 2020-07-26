@@ -1,3 +1,44 @@
+/* roboto-300 - latin_cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'),
+  url('../fonts/roboto-v20-latin_cyrillic-ext-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin_cyrillic-ext-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-regular - latin_cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+  url('../fonts/roboto-v20-latin_cyrillic-ext-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin_cyrillic-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin_cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+  url('../fonts/roboto-v20-latin_cyrillic-ext-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin_cyrillic-ext-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700 - latin_cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+  url('../fonts/roboto-v20-latin_cyrillic-ext-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/roboto-v20-latin_cyrillic-ext-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+  font-family: "Roboto";
+}
+
 .section {
   padding: 60px 0;
 }
@@ -31,15 +72,37 @@
   background-color: #fff;
   transition: box-shadow .3s,color .3s,-webkit-box-shadow .3s;
   margin: 10px 0;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  -webkit-box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
+  box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
 }
 
 .feature-card__title {
   margin-top: 16px;
 }
 
-.feature-card:hover {
-  -webkit-box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
-  box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
+.offer-box {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 20%, rgba(99,81,81,0.4) 40%);
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+.card-btn {
+  float: right;
+}
+
+.card-img {
+  filter: brightness(50%);
+}
+
+.app-breadcrumbs > a {
+  color: #fff;
+}
+.app-breadcrumbs > i {
+  padding: 0 5px;
 }
 
 .section-about__text {
@@ -61,23 +124,42 @@
 }
 
 .section-info {
-  background: linear-gradient(90deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.8) 40%), url("/img/towerbridgecopyrightvisitlondoncomantoinebuchet.jpg");
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.8) 40%), url("/img/london-city-uk-gb-unitedkingdom-england-photo-photography--8.jpg");
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section-offer {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.8) 40%), url("/img/252.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section-offer__content {
+  color: #fff;
+  width: 100%;
+  text-align: center;
 }
 
 .carousel-item {
-  height: 100vh;
+  height: 76vh;
 }
 
 .card__titile {
   color: #ffffff;
 }
-
 .card {
   color: #fff;
   margin: 20px 0;
+}
+
+.no-course-img {
+  width: 20%;
+  padding: 20px;
 }
 
 .section.section-courses {

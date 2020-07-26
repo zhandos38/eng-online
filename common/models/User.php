@@ -173,6 +173,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->auth_key;
     }
 
+    public static function getCourseById($id)
+    {
+        return UserCourse::findOne(['course_id' => $id, 'user_id' => Yii::$app->user->getId()]);
+    }
+
     /**
      * {@inheritdoc}
      */
