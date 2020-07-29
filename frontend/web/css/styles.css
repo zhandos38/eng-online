@@ -62,6 +62,10 @@ body {
   padding: 20px 0;
 }
 
+.section-content img {
+  width: 100%;
+}
+
 .section.section-feature {
   background: #f9f9f9;
 }
