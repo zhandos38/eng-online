@@ -225,3 +225,8 @@ footer li {
   color: #f44336;
 }
 
+@media only screen and (max-width: 600px) {
+  .carousel-item {
+    height: 100%;
+  }
+}

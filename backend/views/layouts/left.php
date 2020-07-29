@@ -23,6 +23,7 @@
                     ['label' => 'Слайдеры', 'icon' => 'fas fa-user', 'url' => ['slider/index']],
                     ['label' => 'Курсы', 'icon' => 'fas fa-user', 'url' => ['course/index']],
                     ['label' => 'Лекции', 'icon' => 'fas fa-user', 'url' => ['course-lesson/index']],
+                    ['label' => 'Лайфхаки', 'icon' => 'fas fa-user', 'url' => ['lifehack/index']],
                 ],
             ]
         ) ?>

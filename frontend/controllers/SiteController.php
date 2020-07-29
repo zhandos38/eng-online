@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Course;
+use common\models\Lifehack;
 use common\models\Mark;
 use common\models\Post;
 use common\models\Slider;
@@ -83,11 +84,13 @@ class SiteController extends Controller
         $this->layout = 'home';
 
         $sliders = Slider::find()->all();
-        $courses = Course::find()->all();
+        $courses = Course::find()->limit(6)->all();
+        $lifehacks = Lifehack::find()->limit(6)->all();
 
         return $this->render('index', [
             'sliders' => $sliders,
-            'courses' => $courses
+            'courses' => $courses,
+            'lifehacks' => $lifehacks
         ]);
     }
 

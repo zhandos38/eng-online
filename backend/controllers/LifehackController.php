@@ -3,18 +3,35 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Course;
-use backend\models\CourseSearch;
+use common\models\Lifehack;
+use backend\models\LifehackSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
- * CourseController implements the CRUD actions for Course model.
+ * LifehackController implements the CRUD actions for Lifehack model.
  */
-class CourseController extends Controller
+class LifehackController extends Controller
 {
+    public function actions()
+    {
+        return [
+            'images-get' => [
+                'class' => 'vova07\imperavi\actions\GetImagesAction',
+                'url' => Yii::$app->params['staticDomain'] . '/upload/', // Directory URL address, where files are stored.
+                'path' => '@static/upload', // Or absolute path to directory where files are stored.
+                'options' => ['only' => ['*.jpg', '*.jpeg', '*.png', '*.gif', '*.ico']], // These options are by default.
+            ],
+            'image-upload' => [
+                'class' => 'vova07\imperavi\actions\UploadFileAction',
+                'url' => Yii::$app->params['staticDomain'] .'/upload/', // Directory URL address, where files are stored.
+                'path' => '@static/upload', // Or absolute path to directory where files are stored.
+            ],
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -30,30 +47,13 @@ class CourseController extends Controller
         ];
     }
 
-    public function actions()
-    {
-        return [
-            'images-get' => [
-                'class' => 'vova07\imperavi\actions\GetImagesAction',
-                'url' => Yii::$app->params['staticDomain'] . 'upload/', // Directory URL address, where files are stored.
-                'path' => '@static/upload', // Or absolute path to directory where files are stored.
-                'options' => ['only' => ['*.jpg', '*.jpeg', '*.png', '*.gif', '*.ico']], // These options are by default.
-            ],
-            'image-upload' => [
-                'class' => 'vova07\imperavi\actions\UploadFileAction',
-                'url' => Yii::$app->params['staticDomain'] . '/upload/', // Directory URL address, where files are stored.
-                'path' => '@static/upload', // Or absolute path to directory where files are stored.
-            ],
-        ];
-    }
-
     /**
-     * Lists all Course models.
+     * Lists all Lifehack models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CourseSearch();
+        $searchModel = new LifehackSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -63,7 +63,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Displays a single Course model.
+     * Displays a single Lifehack model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -76,19 +76,19 @@ class CourseController extends Controller
     }
 
     /**
-     * Creates a new Course model.
+     * Creates a new Lifehack model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Course();
+        $model = new Lifehack();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imgFile = UploadedFile::getInstance($model, 'imageFile');
 
-            if ($model->imageFile) {
-                $model->img = $model->imageFile->baseName . '.' . $model->imageFile->extension;
+            if ($model->imgFile) {
+                $model->img = $model->imgFile->baseName . '.' . $model->imgFile->extension;
             }
 
             if ($model->save() && $model->upload()) {
@@ -102,7 +102,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Updates an existing Course model.
+     * Updates an existing Lifehack model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -113,10 +113,10 @@ class CourseController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
 
-            if ($model->imageFile) {
-                $model->img = $model->imageFile->baseName . '.' . $model->imageFile->extension;
+            if ($model->imgFile) {
+                $model->img = $model->imgFile->baseName . '.' . $model->imgFile->extension;
             }
 
             if ($model->save() && $model->upload()) {
@@ -130,7 +130,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Deletes an existing Course model.
+     * Deletes an existing Lifehack model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -144,15 +144,15 @@ class CourseController extends Controller
     }
 
     /**
-     * Finds the Course model based on its primary key value.
+     * Finds the Lifehack model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Course the loaded model
+     * @return Lifehack the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Course::findOne($id)) !== null) {
+        if (($model = Lifehack::findOne($id)) !== null) {
             return $model;
         }
 

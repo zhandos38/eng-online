@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Lifehack;
 use yii\helpers\Url;
 
 $this->title = 'Главная страница';
@@ -36,56 +37,56 @@ $this->title = 'Главная страница';
 <section class="section section-feature">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-left" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/video.png"></div>
                     <h4 class="feature-card__title">Онлайн курсы</h4>
                     <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-right" data-aos-delay="400" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/puzzle.png"></div>
                     <h4 class="feature-card__title">Лайфхаки</h4>
                     <p>Біз біліммен бөлісеміз және өмірдің қызықты тұстары туралы айтып береміз<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-down" data-aos-delay="200" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/book.png"></div>
                     <h4 class="feature-card__title">Богатый словарник</h4>
                     <p>Апта сайын сөздікті жаңа сөздермен толықтырып отырамыз.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-right" data-aos-delay="300" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/trophy.png"></div>
                     <h4 class="feature-card__title">Онлайн тестирование</h4>
                     <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-up" data-aos-delay="500" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/dialogue.png"></div>
                     <h4 class="feature-card__title">Online English Club</h4>
                     <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-left" data-aos-delay="600" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/paper.png"></div>
                     <h4 class="feature-card__title">Сертификат</h4>
                     <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-up-right" data-aos-duration="700" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/help.png"></div>
                     <h4 class="feature-card__title">Круглосуточна поддержка</h4>
                     <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
                 </div>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-6 col-sm-4 col-md-3">
                 <div data-aos="fade-down-left" data-aos-delay="800" class="feature-card">
                     <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/mobile-app.png"></div>
                     <h4 class="feature-card__title">Мобильное приложения</h4>
@@ -154,43 +155,28 @@ $this->title = 'Главная страница';
         </div>
     </div>
 </section>
-<!--<section class="section section-lifehacks">-->
-<!--    <div class="container">-->
-<!--        <h1 data-aos="fade-up" data-aos-duration="300">Лайфхаки</h1>-->
-<!--        <p data-aos="fade-up" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>-->
-<!--        <div class="row"><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div><div class="col-md-3">-->
-<!--                <div class="life-hack">-->
-<!--                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dr__F3BPKa4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--                </div>-->
-<!--            </div></div>-->
-<!--        <div class="lifehacks__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</button></div>-->
-<!--    </div>-->
-<!--</section>-->
+<section class="section section-lifehacks">
+    <div class="container">
+        <h1 data-aos="fade-up" data-aos-duration="300">Лайфхаки</h1>
+        <p data-aos="fade-up" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>
+        <div class="row">
+            <?php
+            /** @var Lifehack $lifehacks */
+            /** @var Lifehack $lifehack */
+            foreach ($lifehacks as $lifehack): ?>
+            <div class="col-md-3">
+                <div class="life-hack">
+                    <div class="card">
+                        <img class="card-img w-100 d-block" src="<?= $lifehack->getImage() ?>">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title"><?= $course->name ?></h4>
+                            <a class="card-btn btn btn-primary" href="<?= Url::to(['lifehack/view', 'id' => $lifehack->id]) ?>">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="lifehacks__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</button></div>
+    </div>
+</section>
