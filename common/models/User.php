@@ -264,6 +264,6 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getRoleLabel()
     {
-        return ArrayHelper::getValue(static::getRoles(), $this->status);
+        return ArrayHelper::getValue(static::getRoles(), $this->role);
     }
 }

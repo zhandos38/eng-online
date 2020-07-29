@@ -31,14 +31,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'username',
+            'name',
+            'surname',
             'email:email',
-            'role',
+            [
+                'attribute' => 'role',
+                'value' => function(User $model) {
+                    return $model->getRoleLabel();
+                },
+                'filter' => User::getRoles()
+            ],
             [
                 'attribute' => 'status',
                 'value' => function(User $model) {
                     return $model->getStatusLabel();
-                }
+                },
+                'filter' => User::getStatuses()
             ],
             [
                 'attribute' => 'created_at',
