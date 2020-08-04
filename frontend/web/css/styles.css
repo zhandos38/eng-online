@@ -53,6 +53,15 @@ body {
   background-size: cover;
 }
 
+.feature-card__link-wrapper {
+  color: #0f0f0f;
+}
+
+.feature-card__link-wrapper:hover {
+  color: #0f0f0f;
+  text-decoration: none;
+}
+
 .feature-card__image {
   width: 65%;
 }

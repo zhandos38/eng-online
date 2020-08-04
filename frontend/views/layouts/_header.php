@@ -21,7 +21,7 @@ use yii\helpers\Url;
                         <a class="nav-link pagescroll" href="<?= Url::to(['course/index']) ?>"><?= Yii::t('app', 'Курсы') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pagescroll" href="#blog"><?= Yii::t('app', 'Лайфхаки') ?></a>
+                        <a class="nav-link pagescroll" href="<?= Url::to(['lifehack/index']) ?>"><?= Yii::t('app', 'Лайфхаки') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pagescroll" href="#contact"><?= Yii::t('app', 'Приложения') ?></a>
@@ -40,7 +40,7 @@ use yii\helpers\Url;
                             <a class="navbar-btn btn btn-info" href="<?= Url::to(['site/login']) ?>"><?= Yii::t('app', 'Войти / Зарегистрироватся') ?></a>
                         <?php else: ?>
                             <a class="navbar-dropdown-btn btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= Yii::t('app', 'Привет') ?>, <?= Yii::$app->user->identity->name ?>
+                                <?= Yii::$app->user->identity->point ?> <i class="fa fa-ticket"></i> | <?= Yii::$app->user->identity->name ?>
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

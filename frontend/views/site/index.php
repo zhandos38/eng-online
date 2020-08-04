@@ -38,60 +38,76 @@ $this->title = 'Главная страница';
     <div class="container">
         <div class="row">
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-left" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/video.png"></div>
-                    <h4 class="feature-card__title">Онлайн курсы</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['course/index']) ?>">
+                    <div data-aos="fade-left" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/video.png"></div>
+                        <h4 class="feature-card__title">Онлайн курсы</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-right" data-aos-delay="400" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/puzzle.png"></div>
-                    <h4 class="feature-card__title">Лайфхаки</h4>
-                    <p>Біз біліммен бөлісеміз және өмірдің қызықты тұстары туралы айтып береміз<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['lifehack/index']) ?>">
+                    <div data-aos="fade-right" data-aos-delay="400" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/puzzle.png"></div>
+                        <h4 class="feature-card__title">Лайфхаки</h4>
+                        <p>Біз біліммен бөлісеміз және өмірдің қызықты тұстары туралы айтып береміз<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-down" data-aos-delay="200" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/book.png"></div>
-                    <h4 class="feature-card__title">Богатый словарник</h4>
-                    <p>Апта сайын сөздікті жаңа сөздермен толықтырып отырамыз.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['site/signup']) ?>">
+                    <div data-aos="fade-down" data-aos-delay="200" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/book.png"></div>
+                        <h4 class="feature-card__title">Богатый словарник</h4>
+                        <p>Апта сайын сөздікті жаңа сөздермен толықтырып отырамыз.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-right" data-aos-delay="300" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/trophy.png"></div>
-                    <h4 class="feature-card__title">Онлайн тестирование</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['site/signup']) ?>">
+                    <div data-aos="fade-right" data-aos-delay="300" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/trophy.png"></div>
+                        <h4 class="feature-card__title">Онлайн тестирование</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-up" data-aos-delay="500" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/dialogue.png"></div>
-                    <h4 class="feature-card__title">Online English Club</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['site/signup']) ?>">
+                    <div data-aos="fade-up" data-aos-delay="500" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/dialogue.png"></div>
+                        <h4 class="feature-card__title">Online English Club</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-left" data-aos-delay="600" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/paper.png"></div>
-                    <h4 class="feature-card__title">Сертификат</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['course/index']) ?>">
+                    <div data-aos="fade-left" data-aos-delay="600" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/paper.png"></div>
+                        <h4 class="feature-card__title">Сертификат</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-up-right" data-aos-duration="700" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/help.png"></div>
-                    <h4 class="feature-card__title">Круглосуточна поддержка</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['site/signup']) ?>">
+                    <div data-aos="fade-up-right" data-aos-duration="700" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/help.png"></div>
+                        <h4 class="feature-card__title">Круглосуточна поддержка</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
             <div class="col-6 col-sm-4 col-md-3">
-                <div data-aos="fade-down-left" data-aos-delay="800" class="feature-card">
-                    <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/mobile-app.png"></div>
-                    <h4 class="feature-card__title">Мобильное приложения</h4>
-                    <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
-                </div>
+                <a class="feature-card__link-wrapper" href="<?= Url::to(['site/signup']) ?>">
+                    <div data-aos="fade-down-left" data-aos-delay="800" class="feature-card">
+                        <div class="feature-card__image-wrapper"><img class="feature-card__image" src="/img/mobile-app.png"></div>
+                        <h4 class="feature-card__title">Мобильное приложения</h4>
+                        <p>Күн сайын біздің курстарды мыңнан астам студенттер онлайн түрде қарайды.<br></p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -110,7 +126,7 @@ $this->title = 'Главная страница';
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="info-counter"><span class="info-counter__number count">6421</span>
+                <div class="info-counter"><span class="info-counter__number count"><?= Yii::$app->settings->get('app', 'students') ?></span>
                     <div class="info-counter__title"><span>Зарегистрированных учеников</span></div>
                 </div>
             </div>
@@ -177,6 +193,6 @@ $this->title = 'Главная страница';
             </div>
             <?php endforeach; ?>
         </div>
-        <div class="lifehacks__footer"><button class="btn btn-primary" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</button></div>
+        <div class="lifehacks__footer"><a class="btn btn-primary" href="<?= Url::to(['lifehack/index']) ?>" data-aos="zoom-in" data-aos-duration="300" type="button">Все лайфхаки</a></div>
     </div>
 </section>

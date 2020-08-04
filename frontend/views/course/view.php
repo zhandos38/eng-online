@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => \yii\helpers
             </div>
         </div>
         <?php endif; ?>
+        <?php if (User::getCourseById($course->id)): ?>
         <ul class="lesson-list list-group">
             <?php foreach ($course->courseLessons as $key => $lesson): ?>
                 <a class="list-group-item list-group-item-action" href="<?= \yii\helpers\Url::to(['course/lesson', 'id' => $lesson->id]) ?>">
@@ -38,5 +39,6 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => \yii\helpers
                 </a>
             <?php endforeach; ?>
         </ul>
+        <?php endif; ?>
     </div>
 </div>
