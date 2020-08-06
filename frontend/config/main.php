@@ -10,7 +10,7 @@ return [
     'id' => 'app-frontend',
     'name' => 'FreeWay.kz',
     'basePath' => dirname(__DIR__),
-    'language' => 'ru',
+    'language' => 'kz',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -49,6 +49,9 @@ return [
                 'login' => 'site/login',
                 'signup' => 'site/signup'
             ],
+        ],
+        'settings' => [
+            'class' => 'yii2mod\settings\components\Settings',
         ],
     ],
     'params' => $params,

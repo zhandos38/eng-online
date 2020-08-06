@@ -37,8 +37,15 @@ use yii\widgets\ActiveForm;
             'minHeight' => 200,
             'plugins' => [
                 'clips',
+                'video',
                 'fullscreen',
                 'imagemanager',
+                'fontcolor',
+                'fontsize',
+                'table',
+                'counter',
+                'widget',
+                'specialchars'
             ],
             'imageUpload' => Url::to(['course/image-upload']),
             'imageManagerJson' => Url::to(['course/images-get']),

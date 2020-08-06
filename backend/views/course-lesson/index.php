@@ -39,7 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'course_id',
                 'value' => function(CourseLesson $model) {
                     return $model->course->name;
-                }
+                },
+                'filter' => \yii\helpers\ArrayHelper::map(Course::find()->asArray()->all(), 'id', 'name')
             ],
             [
                 'attribute' => 'created_at',

@@ -5,7 +5,7 @@ use yii\helpers\Url;
 <header class="site-header" id="header">
     <nav class="navbar navbar-expand-lg transparent-bg static-nav">
         <div class="container">
-            <a class="navbar-brand" href="/main">
+            <a class="navbar-brand" href="/">
                 <img src="/maintemplate/img/logo.png" alt="logo" class="logo-default">
                 <img src="/maintemplate/img/logo.svg" alt="logo" class="logo-scrolled">
             </a>
@@ -18,29 +18,35 @@ use yii\helpers\Url;
                         <a class="nav-link pagescroll scrollupto" href="<?= Url::to(['site/about']) ?>"><?= Yii::t('app', 'О нас') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pagescroll" href="#speakers"><?= Yii::t('app', 'Курсы') ?></a>
+                        <a class="nav-link pagescroll" href="<?= Url::to(['course/index']) ?>"><?= Yii::t('app', 'Курсы') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pagescroll" href="#blog"><?= Yii::t('app', 'Лайфхаки') ?></a>
+                        <a class="nav-link pagescroll" href="<?= Url::to(['lifehack/index']) ?>"><?= Yii::t('app', 'Лайфхаки') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pagescroll" href="#contact"><?= Yii::t('app', 'Приложения') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pagescroll" href="<?= Url::to(['site/challenge']) ?>"><?= Yii::t('app', 'ТОП 100') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pagescroll" href="<?= Url::to(['site/contact']) ?>"><?= Yii::t('app', 'Контакты') ?></a>
                     </li>
                     <li class="nav-item">
                         <?= $this->render('select-language') ?>
                     </li>
                     <li class="nav-item">
                         <?php if (!Yii::$app->user->identity): ?>
-                            <a class="navbar-btn btn btn-info" href="<?= Url::to(['site/about']) ?>"><?= Yii::t('app', 'Войти / Зарегистрироватся') ?></a>
+                            <a class="navbar-btn btn btn-info" href="<?= Url::to(['site/login']) ?>"><?= Yii::t('app', 'Войти / Зарегистрироватся') ?></a>
                         <?php else: ?>
                             <a class="navbar-dropdown-btn btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?= Yii::t('app', 'Привет') ?>, <?= Yii::$app->user->identity->name ?>
+                                <?= Yii::$app->user->identity->point ?> <i class="fa fa-ticket"></i> | <?= Yii::$app->user->identity->name ?>
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="<?= Url::to(['user/courses']) ?>"><?= Yii::t('app', 'Мои курсы') ?></a>
+                                <a class="dropdown-item" href="<?= Url::to(['user/profile']) ?>"><?= Yii::t('app', 'Мой профиль') ?></a>
+                                <a class="dropdown-item" href="<?= Url::to(['site/logout']) ?>"><?= Yii::t('app', 'Выйти') ?></a>
                             </div>
                         <?php endif; ?>
                     </li>
@@ -66,7 +72,7 @@ use yii\helpers\Url;
                         <a class="nav-link pagescroll scrollupto" href="<?= Url::to(['site/about']) ?>"><?= Yii::t('app', 'О нас') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pagescroll" href="#speakers"><?= Yii::t('app', 'Курсы') ?></a>
+                        <a class="nav-link pagescroll" href="<?= Url::to(['course/index']) ?>"><?= Yii::t('app', 'Курсы') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pagescroll" href="#blog"><?= Yii::t('app', 'Лайфхаки') ?></a>
@@ -75,10 +81,28 @@ use yii\helpers\Url;
                         <a class="nav-link pagescroll" href="#contact"><?= Yii::t('app', 'Приложения') ?></a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link pagescroll" href="<?= Url::to(['site/challenge']) ?>"><?= Yii::t('app', 'ТОП 100') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pagescroll" href="<?= Url::to(['site/contact']) ?>"><?= Yii::t('app', 'Контакты') ?></a>
+                    </li>
+                    <li class="nav-item">
                         <?= $this->render('select-language') ?>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-btn btn btn-info" href="<?= Url::to(['site/about']) ?>"><?= Yii::t('app', 'Войти / Зарегистрироватся') ?></a>
+                        <?php if (!Yii::$app->user->identity): ?>
+                            <a class="navbar-btn btn btn-info" href="<?= Url::to(['site/login']) ?>"><?= Yii::t('app', 'Войти / Зарегистрироватся') ?></a>
+                        <?php else: ?>
+                            <a class="navbar-dropdown-btn btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?= Yii::t('app', 'Привет') ?>, <?= Yii::$app->user->identity->name ?>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="<?= Url::to(['user/course']) ?>"><?= Yii::t('app', 'Мои курсы') ?></a>
+                                <a class="dropdown-item" href="<?= Url::to(['user/profile']) ?>"><?= Yii::t('app', 'Мой профиль') ?></a>
+                                <a class="dropdown-item" href="<?= Url::to(['site/logout']) ?>"><?= Yii::t('app', 'Выйти') ?></a>
+                            </div>
+                        <?php endif; ?>
                     </li>
                 </ul>
             </nav>

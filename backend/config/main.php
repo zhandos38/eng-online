@@ -13,7 +13,11 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'settings' => [
+            'class' => 'yii2mod\settings\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -43,6 +47,17 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            ],
+        ],
+        'settings' => [
+            'class' => 'yii2mod\settings\components\Settings',
+        ],
+        'i18n' => [
+            'translations' => [
+                'yii2mod.settings' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/settings/messages',
+                ],
             ],
         ],
     ],

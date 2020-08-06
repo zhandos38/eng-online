@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Course;
+use common\models\Lifehack;
 use common\models\Mark;
 use common\models\Post;
 use common\models\Slider;
@@ -50,7 +52,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -82,8 +84,13 @@ class SiteController extends Controller
         $this->layout = 'home';
 
         $sliders = Slider::find()->all();
+        $courses = Course::find()->limit(6)->all();
+        $lifehacks = Lifehack::find()->limit(6)->all();
+
         return $this->render('index', [
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'courses' => $courses,
+            'lifehacks' => $lifehacks
         ]);
     }
 
@@ -138,11 +145,11 @@ class SiteController extends Controller
             }
 
             return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('contact', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -266,5 +273,10 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    public function actionChallenge()
+    {
+        return $this->render('challenge');
     }
 }

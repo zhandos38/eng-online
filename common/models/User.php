@@ -25,6 +25,7 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property int $point [int(11)]
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -62,6 +63,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             [['name', 'surname', 'phone'], 'string', 'max' => 255],
             ['email', 'email'],
+            ['point', 'integer'],
 
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
@@ -173,6 +175,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->auth_key;
     }
 
+    public static function getCourseById($id)
+    {
+        return UserCourse::findOne(['course_id' => $id, 'user_id' => Yii::$app->user->getId()]);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -259,6 +266,6 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getRoleLabel()
     {
-        return ArrayHelper::getValue(static::getRoles(), $this->status);
+        return ArrayHelper::getValue(static::getRoles(), $this->role);
     }
 }

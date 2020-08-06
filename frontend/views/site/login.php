@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
 
-    <p><?= Yii::t('app', 'Кіру үшін астындағы форманы толтырыңыз') ?></p>
+    <p><?= Yii::t('app', 'Чтобы авторизоватся заполните форму ниже') ?></p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
                 <div style="color:#999;margin:1em 0">
+                    Вы не зарегистрированы? <?= Html::a(Yii::t('app', 'Зарегистрироватся'), ['site/signup']) ?>.
+                    <br>
                     Забыли пароль? <?= Html::a(Yii::t('app', 'Восстановить'), ['site/request-password-reset']) ?>.
                     <br>
                     Нужно переотправить письмо для подтверждение? <?= Html::a('Переотправить', ['site/resend-verification-email']) ?>
