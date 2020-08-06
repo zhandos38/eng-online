@@ -24,7 +24,7 @@
                     ['label' => 'Курсы', 'icon' => 'fas fa-user', 'url' => ['course/index']],
                     ['label' => 'Лекции', 'icon' => 'fas fa-user', 'url' => ['course-lesson/index']],
                     ['label' => 'Лайфхаки', 'icon' => 'fas fa-user', 'url' => ['lifehack/index']],
-                    ['label' => 'Настройки', 'icon' => 'fas fa-user', 'url' => ['settings/index']],
+                    ['label' => 'Настройки', 'icon' => 'fas fa-user', 'url' => ['settings']],
                 ],
             ]
         ) ?>
