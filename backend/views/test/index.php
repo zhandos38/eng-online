@@ -43,7 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => ArrayHelper::map(CourseLesson::find()->asArray()->all(), 'id', 'name')
             ],
-            'grade',
             'questions_limit',
             //'time_limit:datetime',
             //'lang',

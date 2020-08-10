@@ -17,7 +17,7 @@ class TestSearch extends Test
     public function rules()
     {
         return [
-            [['id', 'course_lesson_id', 'grade', 'questions_limit', 'time_limit', 'created_at'], 'integer'],
+            [['id', 'course_lesson_id', 'questions_limit', 'time_limit', 'created_at'], 'integer'],
             [['name', 'lang'], 'safe'],
         ];
     }
@@ -60,7 +60,6 @@ class TestSearch extends Test
         $query->andFilterWhere([
             'id' => $this->id,
             'course_lesson_id' => $this->course_lesson_id,
-            'grade' => $this->grade,
             'questions_limit' => $this->questions_limit,
             'time_limit' => $this->time_limit,
             'created_at' => $this->created_at,

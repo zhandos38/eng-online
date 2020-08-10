@@ -18,8 +18,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'course_lesson_id')->dropDownList(ArrayHelper::map(CourseLesson::find()->asArray()->all(), 'id', 'name')) ?>
 
-    <?= $form->field($model, 'grade')->textInput() ?>
-
     <?= $form->field($model, 'questions_limit')->textInput() ?>
 
     <?= $form->field($model, 'time_limit')->textInput() ?>
