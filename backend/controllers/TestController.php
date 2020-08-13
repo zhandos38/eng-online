@@ -57,7 +57,7 @@ class TestController extends Controller
         $model = $this->findModel($id);
 
         $questionDataProvider = new ActiveDataProvider([
-           'query' => Question::find()
+           'query' => Question::find()->where(['test_id' => $model->id])
         ]);
 
         return $this->render('view', [

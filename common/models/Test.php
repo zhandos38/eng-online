@@ -12,7 +12,6 @@ use Yii;
  * @property int|null $course_lesson_id
  * @property int|null $questions_limit
  * @property int|null $time_limit
- * @property string|null $lang
  * @property int|null $created_at
  *
  * @property CourseLesson $courseLesson
@@ -35,7 +34,6 @@ class Test extends \yii\db\ActiveRecord
         return [
             [['course_lesson_id', 'questions_limit', 'time_limit', 'created_at'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['lang'], 'string', 'max' => 2],
             [['course_lesson_id'], 'exist', 'skipOnError' => true, 'targetClass' => CourseLesson::className(), 'targetAttribute' => ['course_lesson_id' => 'id']],
         ];
     }
@@ -51,7 +49,6 @@ class Test extends \yii\db\ActiveRecord
             'course_lesson_id' => 'Урок',
             'questions_limit' => 'Лимит по колво вопросов',
             'time_limit' => 'Лимит по времени',
-            'lang' => 'Lang',
             'created_at' => 'Время создания',
         ];
     }

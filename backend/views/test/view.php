@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="test-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <a href="<?= \yii\helpers\Url::to(['test/index']) ?>" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Назад</a>
+    <h1>Тест: <?= Html::encode($this->title) ?></h1>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -30,22 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'questions_limit',
-            'time_limit',
-            'lang'
+            'time_limit'
         ],
     ]) ?>
 
-    <?php
-
-    LteBox::begin([
+    <?php LteBox::begin([
         'type' => LteConst::TYPE_INFO,
         'isSolid' => true,
         'boxTools'=> Html::a('Добавить <i class="fa fa-plus-circle"></i>', ['question/create', 'test_id' => $model->id], ['class' => 'btn btn-success btn-xs create_button']),
         'tooltip' => 'this tooltip description',
         'title' => $this->title
-    ])
-
-    ?>
+    ]) ?>
 
     <?= GridView::widget([
         'dataProvider' => $questionDataProvider,
@@ -54,9 +50,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'text:html',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+                    'view' => function($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['question/view', 'id' => $model->id], [
+                            'title' => Yii::t('yii', 'View')]);
+                    }
+                ]
+            ],
         ],
-    ]); ?>
+    ]) ?>
 
     <?php LteBox::end() ?>
 

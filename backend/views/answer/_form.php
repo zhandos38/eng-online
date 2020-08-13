@@ -1,21 +1,20 @@
 <?php
 
 use vova07\imperavi\Widget;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Question */
+/* @var $model common\models\Answer */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="question-form">
+<div class="answer-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'test_id')->hiddenInput(['value' => $id])->label(false) ?>
+    <?= $form->field($model, 'question_id')->hiddenInput()->label(false)?>
 
     <?= $form->field($model, 'text')->widget(Widget::className(), [
         'settings' => [
@@ -43,6 +42,8 @@ use yii\widgets\ActiveForm;
             ],
         ],
     ]) ?>
+
+    <?= $form->field($model, 'is_right')->checkbox() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

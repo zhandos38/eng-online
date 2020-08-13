@@ -19,7 +19,6 @@ class m200809_122049_create_test_table extends Migration
             'course_lesson_id' => $this->integer(),
             'questions_limit' => $this->integer()->defaultValue(40),
             'time_limit' => $this->integer()->defaultValue(60),
-            'lang' => $this->string(2),
             'created_at' => $this->integer()
         ]);
 

@@ -44,10 +44,10 @@ class Answer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'question_id' => 'Question ID',
-            'text' => 'Text',
-            'is_right' => 'Is Right',
-            'created_at' => 'Created At',
+            'question_id' => 'Вопрос',
+            'text' => 'Текст',
+            'is_right' => 'Верно',
+            'created_at' => 'Время добавления',
         ];
     }
 
