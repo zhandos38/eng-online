@@ -75,4 +75,9 @@ class CourseLesson extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Course::className(), ['id' => 'course_id']);
     }
+
+    public function getTest()
+    {
+        return $this->hasOne(Test::className(), ['course_lesson_id' => 'id']);
+    }
 }

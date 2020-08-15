@@ -19,12 +19,14 @@
                 'items' => [
                     ['label' => 'Разделы', 'options' => ['class' => 'header']],
                     ['label' => 'Пользователи', 'icon' => 'fas fa-user', 'url' => ['user/index']],
-                    ['label' => 'Посты', 'icon' => 'fas fa-user', 'url' => ['post/index']],
-                    ['label' => 'Слайдеры', 'icon' => 'fas fa-user', 'url' => ['slider/index']],
-                    ['label' => 'Курсы', 'icon' => 'fas fa-user', 'url' => ['course/index']],
-                    ['label' => 'Лекции', 'icon' => 'fas fa-user', 'url' => ['course-lesson/index']],
-                    ['label' => 'Лайфхаки', 'icon' => 'fas fa-user', 'url' => ['lifehack/index']],
-                    ['label' => 'Настройки', 'icon' => 'fas fa-user', 'url' => ['/settings']],
+                    ['label' => 'Посты', 'icon' => 'fas fa-pencil', 'url' => ['post/index']],
+                    ['label' => 'Слайдеры', 'icon' => 'fas fa-image', 'url' => ['slider/index']],
+                    ['label' => 'Курсы', 'icon' => 'fas fa-book', 'url' => ['course/index']],
+                    ['label' => 'Лекции', 'icon' => 'fas fa-book', 'url' => ['course-lesson/index']],
+                    ['label' => 'Лайфхаки', 'icon' => 'fas fa-list', 'url' => ['lifehack/index']],
+                    ['label' => 'Тесты', 'icon' => 'fas fa-check-square', 'url' => ['test/index']],
+                    ['label' => 'Настройки', 'icon' => 'fas fa-list', 'url' => ['/settings']],
+                    ['label' => 'Выход', 'icon' => 'fas fa-times', 'url' => ['site/logout']],
                 ],
             ]
         ) ?>

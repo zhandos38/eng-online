@@ -62,4 +62,12 @@ class Test extends \yii\db\ActiveRecord
     {
         return $this->hasOne(CourseLesson::className(), ['id' => 'course_lesson_id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getQuestions()
+    {
+        return $this->hasMany(Question::className(), ['test_id' => 'id'])->orderBy('RAND()')->limit($this->questions_limit);
+    }
 }
