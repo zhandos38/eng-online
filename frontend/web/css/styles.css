@@ -71,7 +71,7 @@ body {
   padding: 20px 0;
 }
 
-.section-content img {
+.section-content img, iframe {
   width: 100%;
 }
 
