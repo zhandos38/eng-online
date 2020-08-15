@@ -80,7 +80,7 @@ class QuestionController extends Controller
         $model->test_id = $test_id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['test/view']);
+            return $this->redirect(['test/view', 'id' => $model->test_id]);
         }
 
         return $this->render('create', [
