@@ -12,8 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="question-create">
 
     <?= $this->render('_form', [
-        'model' => $model,
-        'id' => $id
+        'model' => $model
     ]) ?>
 
 </div>
