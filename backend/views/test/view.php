@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['question/view', 'id' => $model->id], [
                             'title' => Yii::t('yii', 'View')]);
                     },
-                    'edit' => function($url, $model) {
+                    'update' => function($url, $model) {
                         return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['question/update', 'id' => $model->id], [
                             'title' => Yii::t('yii', 'Update')]);
                     }
