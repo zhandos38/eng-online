@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'test_id')->hiddenInput(['value' => $id])->label(false) ?>
+    <?= $form->field($model, 'test_id')->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'text')->widget(Widget::className(), [
         'settings' => [
