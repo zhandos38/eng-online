@@ -31,7 +31,7 @@ AppAsset::register($this);
 <section class="section-hero">
     <div class="container">
         <div class="section-hero__content">
-            <h1 class="secction-hero__title"><?= $this->title ?></h1>
+            <h1 class="section-hero__title"><?= $this->title ?></h1>
             <div>
                 <?= Breadcrumbs::widget([
                     'options' => [
@@ -48,6 +48,9 @@ AppAsset::register($this);
                     'tag' =>  'ul',
                 ]); ?>
             </div>
+        </div>
+        <div class="section-hero__footer">
+            <p><?= $this->params['subTitle'] ?></p>
         </div>
     </div>
 </section>

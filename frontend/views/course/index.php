@@ -6,8 +6,8 @@
 $this->title = Yii::t('app', 'Все курсы');
 
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => \yii\helpers\Url::to(['site/about'])];
+$this->params['subTitle'] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 ?>
-<p data-aos="fade-down" data-aos-duration="500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;<br></p>
 <div class="row">
     <?php foreach ($courses as $course): ?>
         <div class="col-md-3">

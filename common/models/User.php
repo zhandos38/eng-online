@@ -25,6 +25,9 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property-read mixed $statusLabel
+ * @property-read mixed $roleLabel
+ * @property-read string $authKey
  * @property int $point [int(11)]
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -79,6 +82,7 @@ class User extends ActiveRecord implements IdentityInterface
             'email' => 'Почта',
             'phone' => 'Номер телефона',
             'status' => 'Статус',
+            'location' => 'Местонахождения',
             'created_at' => 'Время добавления',
             'update_at' => 'Время обновления'
         ];

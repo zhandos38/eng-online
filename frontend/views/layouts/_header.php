@@ -24,7 +24,7 @@ use yii\helpers\Url;
                         <a class="nav-link pagescroll" href="<?= Url::to(['lifehack/index']) ?>"><?= Yii::t('app', 'Лайфхаки') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pagescroll" href="#contact"><?= Yii::t('app', 'Приложения') ?></a>
+                        <a class="nav-link pagescroll" href="<?= Url::to(['site/app']) ?>"><?= Yii::t('app', 'Приложения') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pagescroll" href="<?= Url::to(['site/challenge']) ?>"><?= Yii::t('app', 'ТОП 100') ?></a>

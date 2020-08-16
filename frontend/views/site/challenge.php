@@ -15,56 +15,14 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => \yii\helpers
         </tr>
         </thead>
         <tbody>
+        <?php /** @var \common\models\User $users */
+        foreach ($users as $user): ?>
         <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
+            <td><?= $user->surname ?> <?= $user->name ?></td>
+            <td><?= $user->location ?></td>
+            <td><?= $user->point ?></td>
         </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
-        <tr>
-            <td>Тестовой</td>
-            <td>Тараз</td>
-            <td>117</td>
-        </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>

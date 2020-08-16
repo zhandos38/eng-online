@@ -6,6 +6,7 @@ use common\models\Lifehack;
 use common\models\Mark;
 use common\models\Post;
 use common\models\Slider;
+use common\models\User;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -267,6 +268,7 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();
             }
+
             Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
         }
 
@@ -277,6 +279,14 @@ class SiteController extends Controller
 
     public function actionChallenge()
     {
-        return $this->render('challenge');
+        $users = User::find()->orderBy(['point' => SORT_DESC])->all();
+        return $this->render('challenge', [
+            'users' => $users
+        ]);
+    }
+
+    public function actionApp()
+    {
+        return $this->render('app');
     }
 }
