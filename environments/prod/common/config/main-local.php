@@ -12,5 +12,10 @@ return [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
         ],
+        'sms' => [
+            'class' => 'frontend\components\SMSCenter',
+            'login' => '',
+            'password' => ''
+        ]
     ],
 ];

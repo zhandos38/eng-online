@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use common\models\SmsLog;
 use Yii;
 use yii\base\Model;
 use common\models\User;
@@ -63,6 +64,7 @@ class SignupForm extends Model
      * Signs user up.
      *
      * @return bool whether the creating new account was successful and email was sent
+     * @throws \yii\db\Exception
      */
     public function signup()
     {
@@ -75,13 +77,17 @@ class SignupForm extends Model
         $user->surname = $this->surname;
         $user->email = $this->email;
         $user->phone = $this->phone;
+        $user->verification_code = (string)($code = random_int(1000, 9999));
         $user->role = User::ROLE_USER;
         $user->status = User::STATUS_INACTIVE;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-        return $user->save();
 
+        SmsLog::sendSms($this->phone, $code . ' - Onlineenglish', $user->id);
+        Yii::$app->session->set('phone', $this->phone);
+
+        return $user->save();
     }
 
     /**

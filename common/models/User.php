@@ -1,6 +1,7 @@
 <?php
 namespace common\models;
 
+use common\models\query\UserQuery;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -17,6 +18,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
+ * @property string $verification_code
  * @property string $email
  * @property string $phone
  * @property string $auth_key
@@ -64,7 +66,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'surname', 'phone'], 'string', 'max' => 255],
+            [['name', 'surname', 'phone', 'verification_code'], 'string', 'max' => 255],
             ['email', 'email'],
             ['point', 'integer'],
 
@@ -267,9 +269,30 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * @return mixed
+     * @throws \Exception
      */
     public function getRoleLabel()
     {
         return ArrayHelper::getValue(static::getRoles(), $this->role);
+    }
+
+    /**
+     * Finds user by username
+     *
+     * @param $phone
+     * @return static|null
+     */
+    public static function findByPhoneInActive($phone)
+    {
+        return static::findOne(['phone' => $phone]);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return UserQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new UserQuery(get_called_class());
     }
 }

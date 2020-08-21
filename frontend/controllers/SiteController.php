@@ -6,8 +6,11 @@ use common\models\Lifehack;
 use common\models\Mark;
 use common\models\Post;
 use common\models\Slider;
+use common\models\SmsLog;
 use common\models\User;
+use Exception;
 use frontend\models\ResendVerificationEmailForm;
+use frontend\models\VerificationForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
@@ -167,6 +170,7 @@ class SiteController extends Controller
      * Signs user up.
      *
      * @return mixed
+     * @throws \yii\db\Exception
      */
     public function actionSignup()
     {
@@ -181,6 +185,45 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionVerification()
+    {
+        $model = new VerificationForm();
+        $model->phone = Yii::$app->session->get('phone');
+
+        if ($model->load(Yii::$app->request->post()) && $model->verify()) {
+            Yii::$app->session->setFlash('success', 'Ваш аккаунт успешно подтвержден. Спасибо что Вы с нами!');
+
+            return $this->redirect(['site/login']);
+        }
+
+        return $this->render('verification', [
+            'model' => $model
+        ]);
+    }
+
+    public function actionResendVerificationCode()
+    {
+        if (Yii::$app->request->isAjax) {
+            try {
+                $user = User::findOne(['phone' => Yii::$app->session->get('phone')]);
+                if (!$user) {
+                    throw new Exception('Пользователь не найден');
+                }
+
+                if ((time() - $user->lastSMS->created_at) <= 60) {
+                    return 'Подаждите пока наступить ваше время ;)';
+                }
+
+                SmsLog::sendSms($user->phone, $user->verification_code . ' - BringFast', $user->id);
+                return true;
+            } catch (Exception $exception) {
+                throw new Exception($exception->getMessage());
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Requests password reset.
      *
@@ -191,12 +234,12 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', 'Проверьте свою почту для дальнейших инструкций');
 
                 return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Извините, мы не можем сбросить пароль для данного email');
             }
-
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
         }
 
         return $this->render('requestPasswordResetToken', [
@@ -210,6 +253,7 @@ class SiteController extends Controller
      * @param string $token
      * @return mixed
      * @throws BadRequestHttpException
+     * @throws \yii\base\Exception
      */
     public function actionResetPassword($token)
     {
@@ -220,7 +264,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
+            Yii::$app->session->setFlash('success', 'Ваш пароль изменен');
 
             return $this->goHome();
         }

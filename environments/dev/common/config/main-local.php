@@ -16,5 +16,10 @@ return [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        'sms' => [
+            'class' => 'frontend\components\SMSCenter',
+            'login' => '',
+            'password' => ''
+        ]
     ],
 ];
